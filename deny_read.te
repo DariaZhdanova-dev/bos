@@ -1,0 +1,11 @@
+module denyread 1.0.0;
+
+require {
+  type unconfined_t;
+  class file { getattr relabelto write read };
+}
+
+type no_read_t;
+
+allow unconfined_t no_read_t:file { getattr relabelto write };
+
